@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.rectangulo{
+    height: 5em;
+    width: 5em;
+    padding: 2em;
+    margin-right: 5px;
+
+    color: white;
+    background-color: navy;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 20%;
+
+}
+
+.rectangulo:hover{
+    background-color: aqua;
+}
+
+.cajita{
+    height: 5em;
+    width: 5em;
+    background-color: blue;
+}
+
+.cajita2{
+    
+    margin-left: 2em;
+    height: 5em;
+    width: 5em;
+    background-color: green;
+}
