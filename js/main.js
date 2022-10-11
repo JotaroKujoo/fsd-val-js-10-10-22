@@ -139,6 +139,67 @@
 
 // console.log(objetoReconvertido)
 
-const inputHandler = (ev) => {
-    console.log(ev.target.value)
+// const inputHandler = (ev) => {
+//     console.log(ev.target.value)
+// }
+
+
+
+// const operation = (onFinish) => {
+//     timeout = 0;
+//     const result = "?????";
+//     timeout = timeout + tiempotardado;
+//     onFinish(result,timeout)
+// };
+
+
+// const showResult = (resString, timeoutNumber) =>{
+//     console.log(`He  acabado con resultado ${resString} en ${timeoutNumber} ms`)
+// }
+
+// const storageResult = (value) => {
+//     localStorage.setItem("result",value)
+// }
+
+// operation(showResult)
+
+// fetch("https://google.com")
+
+const Sumar = (num1, num2) => {
+    return num1 + num2
 }
+
+const Restar = (num1, num2) => {
+    return num1 - num2
+}
+
+const Multiplicar = (num1, num2) => {
+    return num1 * num2
+}
+
+const Dividir = (num1, num2) => {
+    return num1 / num2
+}
+
+let buttons = Array.from(document.getElementsByClassName("butons"))
+
+buttons.map((buton) => {
+    buton.addEventListener("click", () => {
+        switch (buton.innerHTML) {
+            case "sumar":
+                console.log(Sumar(num1, num2))
+                break;
+            case "restar":
+                console.log(Restar(num1, num2))
+                break;
+            case "multiplicar":
+                console.log(Multiplicar(num1, num2))
+                break;
+            case "dividir":
+                console.log(Dividir(num1, num2))
+                break;
+            
+        }
+    })
+
+})
