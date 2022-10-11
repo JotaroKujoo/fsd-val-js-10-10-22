@@ -139,6 +139,6 @@
 
 // console.log(objetoReconvertido)
 
-const inputHandler = (ev) => {
-    console.log(ev.target.value)
-}
+// const inputHandler = (ev) => {
+//     console.log(ev.target.value)
+// }
