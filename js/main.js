@@ -165,41 +165,202 @@
 
 // fetch("https://google.com")
 
-const Sumar = (num1, num2) => {
-    return num1 + num2
-}
+// const Sumar = (num1, num2) => {
+//     return num1 + num2
+// }
 
-const Restar = (num1, num2) => {
-    return num1 - num2
-}
+// const Restar = (num1, num2) => {
+//     return num1 - num2
+// }
 
-const Multiplicar = (num1, num2) => {
-    return num1 * num2
-}
+// const Multiplicar = (num1, num2) => {
+//     return num1 * num2
+// }
 
-const Dividir = (num1, num2) => {
-    return num1 / num2
-}
+// const Dividir = (num1, num2) => {
+//     return num1 / num2
+// }
 
-let buttons = Array.from(document.getElementsByClassName("butons"))
+// let buttons = Array.from(document.getElementsByClassName("butons"))
 
-buttons.map((buton) => {
-    buton.addEventListener("click", () => {
-        switch (buton.innerHTML) {
-            case "sumar":
-                console.log(Sumar(num1, num2))
-                break;
-            case "restar":
-                console.log(Restar(num1, num2))
-                break;
-            case "multiplicar":
-                console.log(Multiplicar(num1, num2))
-                break;
-            case "dividir":
-                console.log(Dividir(num1, num2))
-                break;
+// buttons.map((buton) => {
+//     buton.addEventListener("click", () => {
+//         switch (buton.innerHTML) {
+//             case "sumar":
+//                 console.log(Sumar(num1, num2))
+//                 break;
+//             case "restar":
+//                 console.log(Restar(num1, num2))
+//                 break;
+//             case "multiplicar":
+//                 console.log(Multiplicar(num1, num2))
+//                 break;
+//             case "dividir":
+//                 console.log(Dividir(num1, num2))
+//                 break;
             
-        }
-    })
+//         }
+//     })
 
-})
+// })
+
+
+
+
+
+
+
+// cascarHuevo('huevo 1',(huevoAbierto1) => {
+//     cascarHuevo('huevo 2', (huevoAbierto2) => {
+//         cascarHuevo('huevo 3', (huevoAbierto3) => {
+//             cascarHuevo('huevo 4', (huevoAbierto4) => {
+//                 batir([huevoAbierto1, huevoAbierto2, huevoAbierto3, huevoAbierto4], (huevosBatidos) => {
+//                     freir(huevosBatidos,'sarten',(tortillaCalentita) => {
+//                         console.log('ñam ñam', tortillaCalentita)
+//                 })
+//             })
+//         })
+//     })
+//     })
+// })
+
+
+
+
+//                  TRABAJANDO CON PROMESAS
+
+
+// batir = (huevosAbiertos, cuandoTermines) => {
+
+//     return new Promise( (res,rej)=>{
+//         console.log(huevosAbiertos);
+//         setTimeout (() => cuandoTermines('toma huevos batidos'),5000)
+//     } );
+    
+// }
+
+// freir = (huevosBatidos, sarten, cuandoTermines) => {
+//     return new Promise ((res)=>{
+//         console.log(huevosBatidos, sarten);
+//         setTimeout (() => cuandoTermines('toma una tortilla calentita'),10000)
+//     })
+// }
+
+// cascarHuevo = (huevo) => {
+//     return new Promise((resolve,reject)=>{
+//         if (huevo == "huevo podrido"){
+//             reject("El huevo esta podrido")
+//         }else{
+//             console.log(huevo)
+//             setTimeout(()=> resolve("toma un huevo abierto"),1000)
+//         }
+//     });
+// }
+
+//  let quePromesaSoy = cascarHuevo("1 Huevo").then((huevoAbierto)=>{
+//     return "hola"
+//  })
+
+
+
+
+// let huevoAbiertoPromise1 = cascarHuevo("huevo1")
+// let huevoAbiertoPromise2 = cascarHuevo("huevo2")
+// let huevoAbiertoPromise3 = cascarHuevo("huevo3") 
+// let huevoAbiertoPromise4 = cascarHuevo("huevo4")
+
+// let todosLosHuevosAbiertosPromise = Promise.all([huevoAbiertoPromise1,huevoAbiertoPromise2,huevoAbiertoPromise3,huevoAbiertoPromise4])
+
+// todosLosHuevosAbiertosPromise
+// .then(()=> {
+//     let huevosBatidosPromise = batir(huevosAbiertos);
+//     huevosBatidosPromise.then((huevosBatidos)=>{
+//         let tortillaPromise = freir(huevosBatidos,"sarten")
+//         tortillaPromise.then((tortillaCalentita)=>{
+//             console.log("ñam ñam",tortillaCalentita)
+//         })
+//     })
+// })
+// .catch((error)=>{
+//     /* Manejamos el error */
+// })
+
+
+// let promesaDe4HuevosAbiertos = Promise.all([
+//     cascarHuevo("huevo1"),
+//     cascarHuevo("huevo2"),
+//     cascarHuevo("huevo3"),
+//     cascarHuevo("huevo4")
+// ])
+
+// promesaDe4HuevosAbiertos
+// .then(batir)
+// .then((huevosBatidos)=> freir(huevosBatidos,"sarten"))
+// .then((tortillaCalentita) => console.log("ñam ñam",tortillaCalentita))
+
+
+
+
+
+
+// cascarHuevo("Huevo 1")
+// .then(
+//     (huevoAbierto1)=> [huevoAbierto1])
+// .then(batir)
+// .then(freir)
+
+
+
+// cascarHuevo = (huevo) => {
+//     return new Promise((resolve,reject)=>{
+//         if (huevo == "huevo podrido"){
+//             reject("El huevo esta podrido")
+//         }else{
+//             console.log(huevo)
+//             setTimeout(()=> resolve("toma un huevo abierto"),1000)
+//         }
+//     });
+// }
+
+
+
+
+// let horseRunningPromise = ( caballo ) => {
+//     timeDone = 
+//     return new Promise((res,rej)=>{
+//         setTimeout(res,timeDone,console.log(caballo,timeDone));
+
+//     })
+// }
+
+
+// CARRERA DE CABALLOS
+
+
+// const correrCaballo = (caballo) => new Promise((resolve) => setTimeout(() => resolve({caballo,timeDone}),timeDone = parseInt(Math.random()*10000),console.log(caballo,timeDone)))
+
+
+
+
+// h1 = correrCaballo("caballo1");
+// h2 = correrCaballo("caballo2");
+// h3 = correrCaballo("caballo3");
+
+// horseArr = [h1,h2,h3]
+
+// Promise.race(horseArr).then(value => {
+//     console.log(value.caballo,"Ha ganado en",value.timeDone)
+// })
+
+// Promise.all(horseArr).then(()=> console.log("La carrera ha terminado"))
+
+
+// const sumaUno = (numero) => new Promise((resolve)=> resolve(numero+1))
+
+// const restarUno = async (numero) => {
+//     if (numero < 0) throw new Error("No puedes sumar un numero negativo")
+//     numero - 1
+// }
+
+// await solo puede estar dentro de una funcion async
+ 
