@@ -181,7 +181,7 @@
 //             case "dividir":
 //                 console.log(Dividir(num1, num2))
 //                 break;
-
+            
 //         }
 //     })
 
@@ -190,123 +190,160 @@
 
 
 
-//      IMPORTANTE ALGORITMO PARA VALIDAR ELEMENTOS DEL TIC TAC TOE
-
-// let interruptor = false;
-
-// let casillas = Array.from(document.getElementsByClassName("rectangulo"))
-
-// //UTILIZAMOS MAP PORQUE NOS PERMITE TRATAR A CADA ELEMENTO DEL ARRAY COMO UN OBJETO 
 
 
-// casillas.map((casilla)=> {
-//     casilla.addEventListener("click", ()=>{
-//         if (casilla.innerHTML == ""){
-//             casilla.innerHTML = (interruptor) ? "X" : "O"
-//             interruptor = !interruptor
+
+// cascarHuevo('huevo 1',(huevoAbierto1) => {
+//     cascarHuevo('huevo 2', (huevoAbierto2) => {
+//         cascarHuevo('huevo 3', (huevoAbierto3) => {
+//             cascarHuevo('huevo 4', (huevoAbierto4) => {
+//                 batir([huevoAbierto1, huevoAbierto2, huevoAbierto3, huevoAbierto4], (huevosBatidos) => {
+//                     freir(huevosBatidos,'sarten',(tortillaCalentita) => {
+//                         console.log('ñam ñam', tortillaCalentita)
+//                 })
+//             })
+//         })
+//     })
+//     })
+// })
+
+
+
+
+//                  TRABAJANDO CON PROMESAS
+
+
+// batir = (huevosAbiertos, cuandoTermines) => {
+
+//     return new Promise( (res,rej)=>{
+//         console.log(huevosAbiertos);
+//         setTimeout (() => cuandoTermines('toma huevos batidos'),5000)
+//     } );
+    
+// }
+
+// freir = (huevosBatidos, sarten, cuandoTermines) => {
+//     return new Promise ((res)=>{
+//         console.log(huevosBatidos, sarten);
+//         setTimeout (() => cuandoTermines('toma una tortilla calentita'),10000)
+//     })
+// }
+
+// cascarHuevo = (huevo) => {
+//     return new Promise((resolve,reject)=>{
+//         if (huevo == "huevo podrido"){
+//             reject("El huevo esta podrido")
+//         }else{
+//             console.log(huevo)
+//             setTimeout(()=> resolve("toma un huevo abierto"),1000)
 //         }
+//     });
+// }
+
+//  let quePromesaSoy = cascarHuevo("1 Huevo").then((huevoAbierto)=>{
+//     return "hola"
+//  })
+
+
+
+
+// let huevoAbiertoPromise1 = cascarHuevo("huevo1")
+// let huevoAbiertoPromise2 = cascarHuevo("huevo2")
+// let huevoAbiertoPromise3 = cascarHuevo("huevo3") 
+// let huevoAbiertoPromise4 = cascarHuevo("huevo4")
+
+// let todosLosHuevosAbiertosPromise = Promise.all([huevoAbiertoPromise1,huevoAbiertoPromise2,huevoAbiertoPromise3,huevoAbiertoPromise4])
+
+// todosLosHuevosAbiertosPromise
+// .then(()=> {
+//     let huevosBatidosPromise = batir(huevosAbiertos);
+//     huevosBatidosPromise.then((huevosBatidos)=>{
+//         let tortillaPromise = freir(huevosBatidos,"sarten")
+//         tortillaPromise.then((tortillaCalentita)=>{
+//             console.log("ñam ñam",tortillaCalentita)
+//         })
 //     })
+// })
+// .catch((error)=>{
+//     /* Manejamos el error */
 // })
 
 
+// let promesaDe4HuevosAbiertos = Promise.all([
+//     cascarHuevo("huevo1"),
+//     cascarHuevo("huevo2"),
+//     cascarHuevo("huevo3"),
+//     cascarHuevo("huevo4")
+// ])
 
-const gameModeValidate = (gamemode, gamemodevalue) => {
-    if (gamemode) {
-      sessionStorage.setItem("gamemode", gamemodevalue)
-    }
-  }
-  
-  
-  
-  
-let opciones = Array.from(document.getElementsByClassName("radio"))
-  
-  opciones.map((opcion) => {
-    opcion.addEventListener("click", () => {
-      switch (opcion.value) {
-        case "PlayerVsCPU":
-          document.getElementById("firstPlayer").innerHTML = "Name Player"
-          document.getElementById("secondPlayer").innerHTML = "Name CPU"
-          gameModeValidate(opcion.checked, opcion.value)
-          break;
-        case "CPUvsPlayer":
-          document.getElementById("firstPlayer").innerHTML = "Name CPU"
-          document.getElementById("secondPlayer").innerHTML = "Name Player"
-          gameModeValidate(opcion.checked, opcion.value)
-          break;
-        case "PlayerVsPlayer":
-          document.getElementById("firstPlayer").innerHTML = "Name Player"
-          document.getElementById("secondPlayer").innerHTML = "Name Player 2"
-          gameModeValidate(opcion.checked, opcion.value)
-          break;
-  
-      }
-    })
-  })
+// promesaDe4HuevosAbiertos
+// .then(batir)
+// .then((huevosBatidos)=> freir(huevosBatidos,"sarten"))
+// .then((tortillaCalentita) => console.log("ñam ñam",tortillaCalentita))
 
 
 
-class GameMode {
-    constructor(gamemode = "PlayerVsCPU") {
-
-        this.gamemode = gamemode
-    }
-
-    importGamemode() {
-
-        sessionStorage.setItem(this.gamemode)
-    }
-
-    getGameModeFromHTML() {
-
-
-        let opciones = Array.from(document.getElementsByClassName("radio"))
-  
-        opciones.map((opcion) => {
-            opcion.addEventListener("click", () => {
-            switch (opcion.value) {
-                case "PlayerVsCPU":
-                document.getElementById("firstPlayer").innerHTML = "Name Player"
-                document.getElementById("secondPlayer").innerHTML = "Name CPU"
-                gameModeValidate(opcion.checked, opcion.value)
-                break;
-                case "CPUvsPlayer":
-                document.getElementById("firstPlayer").innerHTML = "Name CPU"
-                document.getElementById("secondPlayer").innerHTML = "Name Player"
-                gameModeValidate(opcion.checked, opcion.value)
-                break;
-                case "PlayerVsPlayer":
-                document.getElementById("firstPlayer").innerHTML = "Name Player"
-                document.getElementById("secondPlayer").innerHTML = "Name Player 2"
-                gameModeValidate(opcion.checked, opcion.value)
-                break;
-        
-            }
-    })
-  })
-
-
-    }
-}
 
 
 
-// let modo = new GameMode();
+// cascarHuevo("Huevo 1")
+// .then(
+//     (huevoAbierto1)=> [huevoAbierto1])
+// .then(batir)
+// .then(freir)
 
-// let opciones = Array.from(document.getElementsByClassName("radio"))
 
-// opciones.map((opcion) => {
-//     opcion.addEventListener("click", () => {
-//         modo.getGameModeFromHTML()
 
+// cascarHuevo = (huevo) => {
+//     return new Promise((resolve,reject)=>{
+//         if (huevo == "huevo podrido"){
+//             reject("El huevo esta podrido")
+//         }else{
+//             console.log(huevo)
+//             setTimeout(()=> resolve("toma un huevo abierto"),1000)
+//         }
+//     });
+// }
+
+
+
+
+// let horseRunningPromise = ( caballo ) => {
+//     timeDone = 
+//     return new Promise((res,rej)=>{
+//         setTimeout(res,timeDone,console.log(caballo,timeDone));
 
 //     })
+// }
+
+
+// CARRERA DE CABALLOS
+
+
+// const correrCaballo = (caballo) => new Promise((resolve) => setTimeout(() => resolve({caballo,timeDone}),timeDone = parseInt(Math.random()*10000),console.log(caballo,timeDone)))
 
 
 
 
+// h1 = correrCaballo("caballo1");
+// h2 = correrCaballo("caballo2");
+// h3 = correrCaballo("caballo3");
+
+// horseArr = [h1,h2,h3]
+
+// Promise.race(horseArr).then(value => {
+//     console.log(value.caballo,"Ha ganado en",value.timeDone)
 // })
 
+// Promise.all(horseArr).then(()=> console.log("La carrera ha terminado"))
 
 
+// const sumaUno = (numero) => new Promise((resolve)=> resolve(numero+1))
 
+// const restarUno = async (numero) => {
+//     if (numero < 0) throw new Error("No puedes sumar un numero negativo")
+//     numero - 1
+// }
+
+// await solo puede estar dentro de una funcion async
+ 
