@@ -6,23 +6,6 @@
 
 
 
-// //      IMPORTANTE ALGORITMO PARA VALIDAR ELEMENTOS DEL TIC TAC TOE
-
-// let interruptor = false;
-
-// let casillas = Array.from(document.getElementsByClassName("rectangulo"))
-
-// //UTILIZAMOS MAP PORQUE NOS PERMITE TRATAR A CADA ELEMENTO DEL ARRAY COMO UN OBJETO 
-
-
-// casillas.map((casilla)=> {
-//     casilla.addEventListener("click", ()=>{
-//         if (casilla.innerHTML == ""){
-//             casilla.innerHTML = (interruptor) ? "X" : "O"
-//             interruptor = !interruptor
-//         }
-//     })
-// })
 
 
 // //Modailidad sin refactorizar el codigo repitiendo muchas lineas de codigo
@@ -165,41 +148,165 @@
 
 // fetch("https://google.com")
 
-const Sumar = (num1, num2) => {
-    return num1 + num2
-}
+// const Sumar = (num1, num2) => {
+//     return num1 + num2
+// }
 
-const Restar = (num1, num2) => {
-    return num1 - num2
-}
+// const Restar = (num1, num2) => {
+//     return num1 - num2
+// }
 
-const Multiplicar = (num1, num2) => {
-    return num1 * num2
-}
+// const Multiplicar = (num1, num2) => {
+//     return num1 * num2
+// }
 
-const Dividir = (num1, num2) => {
-    return num1 / num2
-}
+// const Dividir = (num1, num2) => {
+//     return num1 / num2
+// }
 
-let buttons = Array.from(document.getElementsByClassName("butons"))
+// let buttons = Array.from(document.getElementsByClassName("butons"))
 
-buttons.map((buton) => {
-    buton.addEventListener("click", () => {
-        switch (buton.innerHTML) {
-            case "sumar":
-                console.log(Sumar(num1, num2))
-                break;
-            case "restar":
-                console.log(Restar(num1, num2))
-                break;
-            case "multiplicar":
-                console.log(Multiplicar(num1, num2))
-                break;
-            case "dividir":
-                console.log(Dividir(num1, num2))
-                break;
-            
-        }
+// buttons.map((buton) => {
+//     buton.addEventListener("click", () => {
+//         switch (buton.innerHTML) {
+//             case "sumar":
+//                 console.log(Sumar(num1, num2))
+//                 break;
+//             case "restar":
+//                 console.log(Restar(num1, num2))
+//                 break;
+//             case "multiplicar":
+//                 console.log(Multiplicar(num1, num2))
+//                 break;
+//             case "dividir":
+//                 console.log(Dividir(num1, num2))
+//                 break;
+
+//         }
+//     })
+
+// })
+
+
+
+
+//      IMPORTANTE ALGORITMO PARA VALIDAR ELEMENTOS DEL TIC TAC TOE
+
+// let interruptor = false;
+
+// let casillas = Array.from(document.getElementsByClassName("rectangulo"))
+
+// //UTILIZAMOS MAP PORQUE NOS PERMITE TRATAR A CADA ELEMENTO DEL ARRAY COMO UN OBJETO 
+
+
+// casillas.map((casilla)=> {
+//     casilla.addEventListener("click", ()=>{
+//         if (casilla.innerHTML == ""){
+//             casilla.innerHTML = (interruptor) ? "X" : "O"
+//             interruptor = !interruptor
+//         }
+//     })
+// })
+
+
+
+const gameModeValidate = (gamemode, gamemodevalue) => {
+    if (gamemode) {
+      sessionStorage.setItem("gamemode", gamemodevalue)
+    }
+  }
+  
+  
+  
+  
+let opciones = Array.from(document.getElementsByClassName("radio"))
+  
+  opciones.map((opcion) => {
+    opcion.addEventListener("click", () => {
+      switch (opcion.value) {
+        case "PlayerVsCPU":
+          document.getElementById("firstPlayer").innerHTML = "Name Player"
+          document.getElementById("secondPlayer").innerHTML = "Name CPU"
+          gameModeValidate(opcion.checked, opcion.value)
+          break;
+        case "CPUvsPlayer":
+          document.getElementById("firstPlayer").innerHTML = "Name CPU"
+          document.getElementById("secondPlayer").innerHTML = "Name Player"
+          gameModeValidate(opcion.checked, opcion.value)
+          break;
+        case "PlayerVsPlayer":
+          document.getElementById("firstPlayer").innerHTML = "Name Player"
+          document.getElementById("secondPlayer").innerHTML = "Name Player 2"
+          gameModeValidate(opcion.checked, opcion.value)
+          break;
+  
+      }
     })
+  })
 
-})
+
+
+class GameMode {
+    constructor(gamemode = "PlayerVsCPU") {
+
+        this.gamemode = gamemode
+    }
+
+    importGamemode() {
+
+        sessionStorage.setItem(this.gamemode)
+    }
+
+    getGameModeFromHTML() {
+
+
+        let opciones = Array.from(document.getElementsByClassName("radio"))
+  
+        opciones.map((opcion) => {
+            opcion.addEventListener("click", () => {
+            switch (opcion.value) {
+                case "PlayerVsCPU":
+                document.getElementById("firstPlayer").innerHTML = "Name Player"
+                document.getElementById("secondPlayer").innerHTML = "Name CPU"
+                gameModeValidate(opcion.checked, opcion.value)
+                break;
+                case "CPUvsPlayer":
+                document.getElementById("firstPlayer").innerHTML = "Name CPU"
+                document.getElementById("secondPlayer").innerHTML = "Name Player"
+                gameModeValidate(opcion.checked, opcion.value)
+                break;
+                case "PlayerVsPlayer":
+                document.getElementById("firstPlayer").innerHTML = "Name Player"
+                document.getElementById("secondPlayer").innerHTML = "Name Player 2"
+                gameModeValidate(opcion.checked, opcion.value)
+                break;
+        
+            }
+    })
+  })
+
+
+    }
+}
+
+
+
+// let modo = new GameMode();
+
+// let opciones = Array.from(document.getElementsByClassName("radio"))
+
+// opciones.map((opcion) => {
+//     opcion.addEventListener("click", () => {
+//         modo.getGameModeFromHTML()
+
+
+//     })
+
+
+
+
+// })
+
+
+
+
